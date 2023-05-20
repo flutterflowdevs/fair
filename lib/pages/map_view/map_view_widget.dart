@@ -1,0 +1,92 @@
+import '/auth/supabase_auth/auth_util.dart';
+import '/components/new_nav_bar/new_nav_bar_widget.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'map_view_model.dart';
+export 'map_view_model.dart';
+
+class MapViewWidget extends StatefulWidget {
+  const MapViewWidget({Key? key}) : super(key: key);
+
+  @override
+  _MapViewWidgetState createState() => _MapViewWidgetState();
+}
+
+class _MapViewWidgetState extends State<MapViewWidget> {
+  late MapViewModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => MapViewModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    _unfocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
+          top: true,
+          child: Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 1.0,
+            decoration: BoxDecoration(
+              color: Colors.white,
+            ),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0.0, 1.0),
+                  child: wrapWithModel(
+                    model: _model.newNavBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: NewNavBarWidget(),
+                  ),
+                ),
+                FlutterFlowIconButton(
+                  borderColor: FlutterFlowTheme.of(context).primary,
+                  borderRadius: 20.0,
+                  borderWidth: 1.0,
+                  buttonSize: 40.0,
+                  fillColor: FlutterFlowTheme.of(context).accent1,
+                  icon: Icon(
+                    Icons.logout,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    size: 24.0,
+                  ),
+                  onPressed: () async {
+                    GoRouter.of(context).prepareAuthEvent();
+                    await authManager.signOut();
+                    GoRouter.of(context).clearRedirectLocation();
+
+                    context.goNamedAuth('LoginPage', context.mounted);
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
