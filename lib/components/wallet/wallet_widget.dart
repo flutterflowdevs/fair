@@ -410,7 +410,7 @@ class _WalletWidgetState extends State<WalletWidget>
                                                       ),
                                             ),
                                             Text(
-                                              'FlutterflowDevs',
+                                              'Anujesh Dahiya',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium

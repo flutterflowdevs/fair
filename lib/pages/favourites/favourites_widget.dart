@@ -1,10 +1,11 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -28,14 +29,6 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FavouritesModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.listOfUserFav = await FairLandGroup.getListOfUserFavCall.call(
-        methodUrl: 'get_all_fav_users',
-        userId: 1,
-      );
-    });
   }
 
   @override
@@ -54,7 +47,7 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
       onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).whiteToWhite,
         appBar: AppBar(
           backgroundColor: Color(0xFF749EFB),
           automaticallyImplyLeading: false,
@@ -99,34 +92,77 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Container(
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 1.0,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).primaryBackground,
-            ),
-            child: Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.9,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                  ),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            ListView(
-                              padding: EdgeInsets.zero,
-                              primary: false,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              children: [
-                                Padding(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                child: Builder(
+                  builder: (context) {
+                    final favItem = FFAppState().userFavRideIds.toList();
+                    if (favItem.isEmpty) {
+                      return Image.asset(
+                        'assets/images/WhatsApp_Image_2023-01-23_at_2.51.28_AM.jpeg',
+                        fit: BoxFit.cover,
+                      );
+                    }
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      primary: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: favItem.length,
+                      itemBuilder: (context, favItemIndex) {
+                        final favItemItem = favItem[favItemIndex];
+                        return FutureBuilder<ApiCallResponse>(
+                          future: FairLandGroup.getAmusementParkDetailsByIdCall
+                              .call(
+                            methodUrl: 'get_amusement_park_by_id',
+                            id: favItemItem,
+                          ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              );
+                            }
+                            final containerGetAmusementParkDetailsByIdResponse =
+                                snapshot.data!;
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed(
+                                  'Rides_detail',
+                                  queryParams: {
+                                    'data': serializeParam(
+                                      FairLandGroup
+                                          .getAmusementParkDetailsByIdCall
+                                          .data(
+                                        containerGetAmusementParkDetailsByIdResponse
+                                            .jsonBody,
+                                      ),
+                                      ParamType.JSON,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                              child: Container(
+                                width: 100.0,
+                                decoration: BoxDecoration(
+                                  color:
+                                      FlutterFlowTheme.of(context).whiteToWhite,
+                                ),
+                                child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Column(
@@ -149,7 +185,12 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                       BorderRadius.circular(
                                                           16.0),
                                                   child: Image.network(
-                                                    'https://picsum.photos/seed/924/600',
+                                                    FairLandGroup
+                                                        .getAmusementParkDetailsByIdCall
+                                                        .imageUrl(
+                                                      containerGetAmusementParkDetailsByIdResponse
+                                                          .jsonBody,
+                                                    ),
                                                     width: 80.0,
                                                     height: 80.0,
                                                     fit: BoxFit.cover,
@@ -169,7 +210,13 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      'The Barnstromer',
+                                                      FairLandGroup
+                                                          .getAmusementParkDetailsByIdCall
+                                                          .title(
+                                                            containerGetAmusementParkDetailsByIdResponse
+                                                                .jsonBody,
+                                                          )
+                                                          .toString(),
                                                       maxLines: 2,
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -214,7 +261,15 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                             ),
                                                           ),
                                                           Text(
-                                                            '12:00PM - 08:00PM',
+                                                            dateTimeFormat(
+                                                                'MMMMEEEEd',
+                                                                functions.getDateFromJson(
+                                                                    FairLandGroup
+                                                                        .getAmusementParkDetailsByIdCall
+                                                                        .data(
+                                                                  containerGetAmusementParkDetailsByIdResponse
+                                                                      .jsonBody,
+                                                                ))),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -242,10 +297,36 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 15.0, 0.0),
-                                            child: Icon(
-                                              Icons.favorite,
-                                              color: Color(0xFFFF0000),
-                                              size: 30.0,
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                setState(() {
+                                                  FFAppState()
+                                                      .removeFromUserFavRideIds(
+                                                          favItemItem);
+                                                });
+                                                await UsersTable().update(
+                                                  data: {
+                                                    'favourite_ids':
+                                                        FFAppState()
+                                                            .userFavRideIds,
+                                                  },
+                                                  matchingRows: (rows) =>
+                                                      rows.eq(
+                                                    'id',
+                                                    currentUserUid,
+                                                  ),
+                                                );
+                                              },
+                                              child: Icon(
+                                                Icons.favorite,
+                                                color: Color(0xFFFF0000),
+                                                size: 35.0,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -258,16 +339,16 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                     ],
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    );
+                  },
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

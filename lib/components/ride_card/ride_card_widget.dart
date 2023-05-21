@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -206,28 +207,74 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (valueOrDefault<bool>(
-                    widget.userRecord?.favouriteIds?.contains(getJsonField(
-                      widget.data,
-                      r'''$.id''',
-                    )),
+                    FFAppState().userFavRideIds.contains(getJsonField(
+                          widget.data,
+                          r'''$.id''',
+                        )),
                     false,
                   ))
-                    Icon(
-                      Icons.favorite,
-                      color: Color(0xFFFF0000),
-                      size: 20.0,
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        setState(() {
+                          FFAppState().removeFromUserFavRideIds(getJsonField(
+                            widget.data,
+                            r'''$.id''',
+                          ));
+                        });
+                        await UsersTable().update(
+                          data: {
+                            'favourite_ids': FFAppState().userFavRideIds,
+                          },
+                          matchingRows: (rows) => rows.eq(
+                            'id',
+                            currentUserUid,
+                          ),
+                        );
+                      },
+                      child: Icon(
+                        Icons.favorite,
+                        color: Color(0xFFFF0000),
+                        size: 40.0,
+                      ),
                     ),
                   if (!valueOrDefault<bool>(
-                    widget.userRecord?.favouriteIds?.contains(getJsonField(
-                      widget.data,
-                      r'''$.id''',
-                    )),
+                    FFAppState().userFavRideIds.contains(getJsonField(
+                          widget.data,
+                          r'''$.id''',
+                        )),
                     false,
                   ))
-                    Icon(
-                      Icons.favorite,
-                      color: FlutterFlowTheme.of(context).whiteToWhite,
-                      size: 20.0,
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        setState(() {
+                          FFAppState().addToUserFavRideIds(getJsonField(
+                            widget.data,
+                            r'''$.id''',
+                          ));
+                        });
+                        await UsersTable().update(
+                          data: {
+                            'favourite_ids': FFAppState().userFavRideIds,
+                          },
+                          matchingRows: (rows) => rows.eq(
+                            'id',
+                            currentUserUid,
+                          ),
+                        );
+                      },
+                      child: Icon(
+                        Icons.favorite,
+                        color: FlutterFlowTheme.of(context).whiteToWhite,
+                        size: 40.0,
+                      ),
                     ),
                 ],
               ),

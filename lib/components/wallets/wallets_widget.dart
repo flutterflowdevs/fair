@@ -702,46 +702,47 @@ class _WalletsWidgetState extends State<WalletsWidget>
                 ),
               ),
             ),
-            Align(
-              alignment: AlignmentDirectional(0.2, 0.0),
-              child: Container(
-                width: double.infinity,
-                height: 82.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [],
-                    ),
-                    Text(
-                      'NEXT',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Poppins',
-                            color: FlutterFlowTheme.of(context).blkToWyt,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.normal,
-                          ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: FlutterFlowTheme.of(context).blkToWyt,
-                        size: 24.0,
+            if (false)
+              Align(
+                alignment: AlignmentDirectional(0.2, 0.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 82.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [],
                       ),
-                    ),
-                  ],
-                ),
-              ).animateOnPageLoad(
-                  animationsMap['containerOnPageLoadAnimation7']!),
-            ),
+                      Text(
+                        'NEXT',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              color: FlutterFlowTheme.of(context).blkToWyt,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.normal,
+                            ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                        child: Icon(
+                          Icons.arrow_forward,
+                          color: FlutterFlowTheme.of(context).blkToWyt,
+                          size: 24.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ).animateOnPageLoad(
+                    animationsMap['containerOnPageLoadAnimation7']!),
+              ),
           ],
         ),
       ],

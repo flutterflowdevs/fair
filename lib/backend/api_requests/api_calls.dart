@@ -77,6 +77,14 @@ class GetAmusementParkDetailsByIdCall {
         response,
         r'''$.data[0].created_at''',
       );
+  dynamic title(dynamic response) => getJsonField(
+        response,
+        r'''$.data[0].title''',
+      );
+  dynamic imageUrl(dynamic response) => getJsonField(
+        response,
+        r'''$.data[0].img''',
+      );
 }
 
 class GetAllAmusementParksDetailsCall {

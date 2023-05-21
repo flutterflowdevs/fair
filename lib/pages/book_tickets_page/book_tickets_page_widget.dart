@@ -124,6 +124,12 @@ class _BookTicketsPageWidgetState extends State<BookTicketsPageWidget> {
                             )
                             ?.toList() ??
                         [];
+                    if (item.isEmpty) {
+                      return Image.asset(
+                        'assets/images/WhatsApp_Image_2023-01-23_at_2.51.28_AM.jpeg',
+                        fit: BoxFit.contain,
+                      );
+                    }
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       primary: false,
@@ -190,8 +196,8 @@ class _BookTicketsPageWidgetState extends State<BookTicketsPageWidget> {
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(16.0),
-                                                child: Image.network(
-                                                  'https://www.lonavala.wetnjoy.in/wp-content/uploads/2023/03/Buy-1-get-1-ticket-website-banner.webp',
+                                                child: Image.asset(
+                                                  'assets/images/ridesss.png',
                                                   width: 106.0,
                                                   height: 80.0,
                                                   fit: BoxFit.contain,
@@ -249,10 +255,14 @@ class _BookTicketsPageWidgetState extends State<BookTicketsPageWidget> {
                                                         ),
                                                       ),
                                                       Text(
-                                                        getJsonField(
-                                                          itemItem,
-                                                          r'''$.created_at''',
-                                                        ).toString(),
+                                                        dateTimeFormat(
+                                                            'MMMMEEEEd',
+                                                            functions
+                                                                .getDateFromJson(
+                                                                    getJsonField(
+                                                              itemItem,
+                                                              r'''$''',
+                                                            ))),
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium

@@ -26,5 +26,19 @@ int getSumOfTicketValue(dynamic value) {
 }
 
 List<int> getIntListFromJson(dynamic value) {
-  return value['favourite_ids'];
+  if (value['favourite_ids'] == null) {
+    return [];
+  }
+  return value['favourite_ids'].cast<int>();
+}
+
+String? printList(List<int> value) {
+  if (value.isEmpty) {
+    return "Empty";
+  }
+  return value.join(', ');
+}
+
+DateTime getDateFromJson(dynamic value) {
+  return DateTime.parse(value['created_at']);
 }

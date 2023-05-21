@@ -83,16 +83,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
       if ((_model.apiResultkrj?.succeeded ?? true)) {
         setState(() {
           FFAppState().userFavRideIds = functions
-              .getIntListFromJson(getJsonField(
+              .getIntListFromJson(
+                  FairLandGroup.getAuthenticateUserRecordsCall.userRecord(
                 (_model.apiResultkrj?.jsonBody ?? ''),
-                r'''$.favourite_ids''',
               ))
               .toList();
         });
-        await Future.delayed(const Duration(milliseconds: 4000));
-
-        context.goNamed('map_view');
       }
+      await Future.delayed(const Duration(milliseconds: 1000));
+
+      context.goNamed('map_view');
     });
   }
 
