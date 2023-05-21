@@ -226,6 +226,11 @@ class _TicketOrderWidgetState extends State<TicketOrderWidget>
             .controller
             .forward(from: 0.0);
       }
+      setState(() {
+        FFAppState().standardCount = 0;
+        FFAppState().expressCount = 0;
+        FFAppState().vipCount = 0;
+      });
     });
 
     setupAnimations(
@@ -377,7 +382,7 @@ class _TicketOrderWidgetState extends State<TicketOrderWidget>
                                                                             0.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      '24',
+                                                                      '  ',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -545,7 +550,7 @@ class _TicketOrderWidgetState extends State<TicketOrderWidget>
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Text(
-                                                                            'FAIR PASS',
+                                                                            'ONE DAY PASS',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFAAAAAA),
@@ -557,7 +562,7 @@ class _TicketOrderWidgetState extends State<TicketOrderWidget>
                                                                         ],
                                                                       ),
                                                                       Text(
-                                                                        'WONDER FAIR, NEW DELHI',
+                                                                        'ADVENTURE KINGDOM, NYC USA',
                                                                         textAlign:
                                                                             TextAlign.start,
                                                                         style: FlutterFlowTheme.of(context)
@@ -720,939 +725,923 @@ class _TicketOrderWidgetState extends State<TicketOrderWidget>
                                   ),
                                 ],
                               ),
-                              Container(
-                                width: double.infinity,
-                                height: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: 100.0,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
+                              if (true)
+                                Container(
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 100.0,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                            ),
                                           ),
-                                        ),
-                                        child: SingleChildScrollView(
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 10.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width: 120.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Color(
-                                                                0x00FFFFFF),
+                                          child: SingleChildScrollView(
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 10.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Container(
+                                                            width: 120.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0x00FFFFFF),
+                                                            ),
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Text(
+                                                              '  ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .blkToBlk,
+                                                                    fontSize:
+                                                                        50.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    useGoogleFonts:
+                                                                        false,
+                                                                  ),
+                                                            ),
                                                           ),
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Text(
-                                                            '  ',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .blkToBlk,
-                                                                  fontSize:
-                                                                      50.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  useGoogleFonts:
-                                                                      false,
+                                                        ],
+                                                      ).animateOnActionTrigger(
+                                                        animationsMap[
+                                                            'columnOnActionTriggerAnimation1']!,
+                                                      ),
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            20.0,
+                                                                            0.0),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                          'yMMMd',
+                                                                          getCurrentTimestamp),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).blkToWyt,
+                                                                            fontSize:
+                                                                                14.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                          ),
+                                                                    ),
+                                                                    Text(
+                                                                      '11.00 - 22.00',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Poppins',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).blkToWyt,
+                                                                            fontSize:
+                                                                                14.0,
+                                                                            letterSpacing:
+                                                                                1.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w200,
+                                                                          ),
+                                                                    ),
+                                                                  ],
+                                                                ).animateOnActionTrigger(
+                                                                  animationsMap[
+                                                                      'columnOnActionTriggerAnimation2']!,
                                                                 ),
+                                                              ),
+                                                            ],
                                                           ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10.0, 20.0,
+                                                          20.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Container(
+                                                            width: 120.0,
+                                                            height: 10.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0x00FFFFFF),
+                                                            ),
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    10.0),
+                                                        child: Text(
+                                                          'CHOSE TICKET',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Color(
+                                                                    0xFF646464),
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    2.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
                                                         ),
-                                                      ],
-                                                    ).animateOnActionTrigger(
-                                                      animationsMap[
-                                                          'columnOnActionTriggerAnimation1']!,
-                                                    ),
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          20.0,
-                                                                          0.0),
-                                                              child: Column(
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 20.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        20.0,
+                                                                        0.0),
+                                                            child: Container(
+                                                              width: 120.0,
+                                                              height: 60.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0x00FFFFFF),
+                                                              ),
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Container(
+                                                                width: 160.0,
+                                                                height: 80.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                  shape: BoxShape
+                                                                      .rectangle,
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Color(
+                                                                        0xFF9E9E9E),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                ),
+                                                                child:
+                                                                    FlutterFlowCountController(
+                                                                  decrementIconBuilder:
+                                                                      (enabled) =>
+                                                                          FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .minus,
+                                                                    color: enabled
+                                                                        ? Color(
+                                                                            0xDD000000)
+                                                                        : Color(
+                                                                            0xFFEEEEEE),
+                                                                    size: 20.0,
+                                                                  ),
+                                                                  incrementIconBuilder:
+                                                                      (enabled) =>
+                                                                          FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .plus,
+                                                                    color: enabled
+                                                                        ? Colors
+                                                                            .blue
+                                                                        : Color(
+                                                                            0xFFEEEEEE),
+                                                                    size: 20.0,
+                                                                  ),
+                                                                  countBuilder:
+                                                                      (count) =>
+                                                                          Text(
+                                                                    count
+                                                                        .toString(),
+                                                                    style: GoogleFonts
+                                                                        .getFont(
+                                                                      'Roboto',
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                    ),
+                                                                  ),
+                                                                  count: _model
+                                                                      .standardCountControllerValue ??= 0,
+                                                                  updateCount:
+                                                                      (count) async {
+                                                                    setState(() =>
+                                                                        _model.standardCountControllerValue =
+                                                                            count);
+                                                                    FFAppState()
+                                                                            .standardCount =
+                                                                        _model
+                                                                            .standardCountControllerValue!;
+                                                                  },
+                                                                  stepSize: 1,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Expanded(
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            if (animationsMap[
+                                                                    'containerOnActionTriggerAnimation3'] !=
+                                                                null) {
+                                                              setState(() =>
+                                                                  hasContainerTriggered3 =
+                                                                      true);
+                                                              SchedulerBinding
+                                                                  .instance
+                                                                  .addPostFrameCallback((_) async => await animationsMap[
+                                                                          'containerOnActionTriggerAnimation3']!
+                                                                      .controller
+                                                                      .forward(
+                                                                          from:
+                                                                              0.0));
+                                                            }
+                                                          },
+                                                          child: Material(
+                                                            color: Colors
+                                                                .transparent,
+                                                            elevation: 10.0,
+                                                            child: Container(
+                                                              width: 100.0,
+                                                              height: 80.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0x00FFFFFF),
+                                                                image:
+                                                                    DecorationImage(
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                  image: Image
+                                                                      .asset(
+                                                                    'assets/images/3_copy.png',
+                                                                  ).image,
+                                                                ),
+                                                              ),
+                                                              child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
                                                                         .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceAround,
                                                                 children: [
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                        'yMMMd',
-                                                                        getCurrentTimestamp),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).blkToWyt,
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                        ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Standard',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: Colors.black,
+                                                                              fontSize: 20.0,
+                                                                            ),
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                  Text(
-                                                                    '11.00 - 22.00',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).blkToWyt,
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              1.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w200,
-                                                                        ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        '\$ 25',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: Colors.black,
+                                                                              fontSize: 20.0,
+                                                                            ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                 ],
-                                                              ).animateOnActionTrigger(
-                                                                animationsMap[
-                                                                    'columnOnActionTriggerAnimation2']!,
                                                               ),
                                                             ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 20.0, 20.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width: 120.0,
-                                                          height: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Color(
-                                                                0x00FFFFFF),
                                                           ),
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  10.0),
-                                                      child: Text(
-                                                        'CHOSE TICKET',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color: Color(
-                                                                  0xFF646464),
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  2.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                            ),
+                                                        ).animateOnActionTrigger(
+                                                            animationsMap[
+                                                                'containerOnActionTriggerAnimation3']!,
+                                                            hasBeenTriggered:
+                                                                hasContainerTriggered3),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'rowOnPageLoadAnimation1']!),
                                                 ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 20.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      20.0,
-                                                                      0.0),
-                                                          child: Container(
-                                                            width: 120.0,
-                                                            height: 60.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0x00FFFFFF),
-                                                            ),
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10.0, 20.0,
+                                                          20.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        25.0,
+                                                                        0.0),
                                                             child: Container(
-                                                              width: 160.0,
+                                                              width: 120.0,
+                                                              height: 60.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0x00FFFFFF),
+                                                              ),
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Container(
+                                                                width: 160.0,
+                                                                height: 80.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                  shape: BoxShape
+                                                                      .rectangle,
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Color(
+                                                                        0xFF9E9E9E),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                ),
+                                                                child:
+                                                                    FlutterFlowCountController(
+                                                                  decrementIconBuilder:
+                                                                      (enabled) =>
+                                                                          FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .minus,
+                                                                    color: enabled
+                                                                        ? Color(
+                                                                            0xDD000000)
+                                                                        : Color(
+                                                                            0xFFEEEEEE),
+                                                                    size: 20.0,
+                                                                  ),
+                                                                  incrementIconBuilder:
+                                                                      (enabled) =>
+                                                                          FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .plus,
+                                                                    color: enabled
+                                                                        ? Colors
+                                                                            .blue
+                                                                        : Color(
+                                                                            0xFFEEEEEE),
+                                                                    size: 20.0,
+                                                                  ),
+                                                                  countBuilder:
+                                                                      (count) =>
+                                                                          Text(
+                                                                    count
+                                                                        .toString(),
+                                                                    style: GoogleFonts
+                                                                        .getFont(
+                                                                      'Roboto',
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                    ),
+                                                                  ),
+                                                                  count: _model
+                                                                      .expressCountControllerValue ??= 0,
+                                                                  updateCount:
+                                                                      (count) async {
+                                                                    setState(() =>
+                                                                        _model.expressCountControllerValue =
+                                                                            count);
+                                                                    FFAppState()
+                                                                            .expressCount =
+                                                                        _model
+                                                                            .expressCountControllerValue!;
+                                                                  },
+                                                                  stepSize: 1,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Expanded(
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            if (animationsMap[
+                                                                    'containerOnActionTriggerAnimation4'] !=
+                                                                null) {
+                                                              setState(() =>
+                                                                  hasContainerTriggered4 =
+                                                                      true);
+                                                              SchedulerBinding
+                                                                  .instance
+                                                                  .addPostFrameCallback((_) async => await animationsMap[
+                                                                          'containerOnActionTriggerAnimation4']!
+                                                                      .controller
+                                                                      .forward(
+                                                                          from:
+                                                                              0.0));
+                                                            }
+                                                          },
+                                                          child: Material(
+                                                            color: Colors
+                                                                .transparent,
+                                                            elevation: 10.0,
+                                                            child: Container(
+                                                              width: 100.0,
                                                               height: 80.0,
                                                               decoration:
                                                                   BoxDecoration(
-                                                                color: Colors
-                                                                    .white,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            0.0),
-                                                                shape: BoxShape
-                                                                    .rectangle,
-                                                                border:
-                                                                    Border.all(
-                                                                  color: Color(
-                                                                      0xFF9E9E9E),
-                                                                  width: 1.0,
+                                                                color: Color(
+                                                                    0x00FFFFFF),
+                                                                image:
+                                                                    DecorationImage(
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                  image: Image
+                                                                      .asset(
+                                                                    'assets/images/3_copy.png',
+                                                                  ).image,
                                                                 ),
                                                               ),
-                                                              child:
-                                                                  FlutterFlowCountController(
-                                                                decrementIconBuilder:
-                                                                    (enabled) =>
-                                                                        FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .minus,
-                                                                  color: enabled
-                                                                      ? Color(
-                                                                          0xDD000000)
-                                                                      : Color(
-                                                                          0xFFEEEEEE),
-                                                                  size: 20.0,
-                                                                ),
-                                                                incrementIconBuilder:
-                                                                    (enabled) =>
-                                                                        FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .plus,
-                                                                  color: enabled
-                                                                      ? Colors
-                                                                          .blue
-                                                                      : Color(
-                                                                          0xFFEEEEEE),
-                                                                  size: 20.0,
-                                                                ),
-                                                                countBuilder:
-                                                                    (count) =>
-                                                                        Text(
-                                                                  count
-                                                                      .toString(),
-                                                                  style: GoogleFonts
-                                                                      .getFont(
-                                                                    'Roboto',
-                                                                    color: Colors
-                                                                        .black,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontSize:
-                                                                        16.0,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceAround,
+                                                                children: [
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Express',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: Colors.black,
+                                                                              fontSize: 20.0,
+                                                                            ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        '\$ 39',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: Colors.black,
+                                                                              fontSize: 20.0,
+                                                                            ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ).animateOnActionTrigger(
+                                                            animationsMap[
+                                                                'containerOnActionTriggerAnimation4']!,
+                                                            hasBeenTriggered:
+                                                                hasContainerTriggered4),
+                                                      ),
+                                                    ],
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'rowOnPageLoadAnimation2']!),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10.0, 20.0,
+                                                          20.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        25.0,
+                                                                        0.0),
+                                                            child: Container(
+                                                              width: 120.0,
+                                                              height: 60.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0x00FFFFFF),
+                                                              ),
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Container(
+                                                                width: 160.0,
+                                                                height: 80.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                  shape: BoxShape
+                                                                      .rectangle,
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Color(
+                                                                        0xFF9E9E9E),
+                                                                    width: 1.0,
                                                                   ),
                                                                 ),
-                                                                count: _model
-                                                                    .standardCountControllerValue ??= 0,
-                                                                updateCount:
-                                                                    (count) async {
-                                                                  setState(() =>
-                                                                      _model.standardCountControllerValue =
-                                                                          count);
-                                                                  FFAppState()
-                                                                          .standardCount =
-                                                                      _model
-                                                                          .standardCountControllerValue!;
-                                                                },
-                                                                stepSize: 1,
+                                                                child:
+                                                                    FlutterFlowCountController(
+                                                                  decrementIconBuilder:
+                                                                      (enabled) =>
+                                                                          FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .minus,
+                                                                    color: enabled
+                                                                        ? Color(
+                                                                            0xDD000000)
+                                                                        : Color(
+                                                                            0xFFEEEEEE),
+                                                                    size: 20.0,
+                                                                  ),
+                                                                  incrementIconBuilder:
+                                                                      (enabled) =>
+                                                                          FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .plus,
+                                                                    color: enabled
+                                                                        ? Colors
+                                                                            .blue
+                                                                        : Color(
+                                                                            0xFFEEEEEE),
+                                                                    size: 20.0,
+                                                                  ),
+                                                                  countBuilder:
+                                                                      (count) =>
+                                                                          Text(
+                                                                    count
+                                                                        .toString(),
+                                                                    style: GoogleFonts
+                                                                        .getFont(
+                                                                      'Roboto',
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                    ),
+                                                                  ),
+                                                                  count: _model
+                                                                      .vIPCountControllerValue ??= 0,
+                                                                  updateCount:
+                                                                      (count) async {
+                                                                    setState(() =>
+                                                                        _model.vIPCountControllerValue =
+                                                                            count);
+                                                                    FFAppState()
+                                                                            .vipCount =
+                                                                        _model
+                                                                            .vIPCountControllerValue!;
+                                                                  },
+                                                                  stepSize: 1,
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Expanded(
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          if (animationsMap[
-                                                                  'containerOnActionTriggerAnimation3'] !=
-                                                              null) {
-                                                            setState(() =>
-                                                                hasContainerTriggered3 =
-                                                                    true);
-                                                            SchedulerBinding
-                                                                .instance
-                                                                .addPostFrameCallback((_) async => await animationsMap[
-                                                                        'containerOnActionTriggerAnimation3']!
-                                                                    .controller
-                                                                    .forward(
-                                                                        from:
-                                                                            0.0));
-                                                          }
-                                                        },
-                                                        child: Material(
-                                                          color: Colors
+                                                        ],
+                                                      ),
+                                                      Expanded(
+                                                        child: InkWell(
+                                                          splashColor: Colors
                                                               .transparent,
-                                                          elevation: 10.0,
-                                                          child: Container(
-                                                            width: 100.0,
-                                                            height: 80.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0x00FFFFFF),
-                                                              image:
-                                                                  DecorationImage(
-                                                                fit: BoxFit
-                                                                    .contain,
-                                                                image:
-                                                                    Image.asset(
-                                                                  'assets/images/3_copy.png',
-                                                                ).image,
-                                                              ),
-                                                            ),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceAround,
-                                                              children: [
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'Standard',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Colors.black,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                          ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      '\$ 25',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Colors.black,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                          ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ).animateOnActionTrigger(
-                                                          animationsMap[
-                                                              'containerOnActionTriggerAnimation3']!,
-                                                          hasBeenTriggered:
-                                                              hasContainerTriggered3),
-                                                    ),
-                                                  ],
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'rowOnPageLoadAnimation1']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 20.0, 20.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      25.0,
-                                                                      0.0),
-                                                          child: Container(
-                                                            width: 120.0,
-                                                            height: 60.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0x00FFFFFF),
-                                                            ),
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            if (animationsMap[
+                                                                    'containerOnActionTriggerAnimation5'] !=
+                                                                null) {
+                                                              setState(() =>
+                                                                  hasContainerTriggered5 =
+                                                                      true);
+                                                              SchedulerBinding
+                                                                  .instance
+                                                                  .addPostFrameCallback((_) async => await animationsMap[
+                                                                          'containerOnActionTriggerAnimation5']!
+                                                                      .controller
+                                                                      .forward(
+                                                                          from:
+                                                                              0.0));
+                                                            }
+                                                          },
+                                                          child: Material(
+                                                            color: Colors
+                                                                .transparent,
+                                                            elevation: 10.0,
                                                             child: Container(
-                                                              width: 160.0,
+                                                              width: 100.0,
                                                               height: 80.0,
                                                               decoration:
                                                                   BoxDecoration(
-                                                                color: Colors
-                                                                    .white,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            0.0),
-                                                                shape: BoxShape
-                                                                    .rectangle,
-                                                                border:
-                                                                    Border.all(
-                                                                  color: Color(
-                                                                      0xFF9E9E9E),
-                                                                  width: 1.0,
-                                                                ),
-                                                              ),
-                                                              child:
-                                                                  FlutterFlowCountController(
-                                                                decrementIconBuilder:
-                                                                    (enabled) =>
-                                                                        FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .minus,
-                                                                  color: enabled
-                                                                      ? Color(
-                                                                          0xDD000000)
-                                                                      : Color(
-                                                                          0xFFEEEEEE),
-                                                                  size: 20.0,
-                                                                ),
-                                                                incrementIconBuilder:
-                                                                    (enabled) =>
-                                                                        FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .plus,
-                                                                  color: enabled
-                                                                      ? Colors
-                                                                          .blue
-                                                                      : Color(
-                                                                          0xFFEEEEEE),
-                                                                  size: 20.0,
-                                                                ),
-                                                                countBuilder:
-                                                                    (count) =>
-                                                                        Text(
-                                                                  count
-                                                                      .toString(),
-                                                                  style: GoogleFonts
-                                                                      .getFont(
-                                                                    'Roboto',
-                                                                    color: Colors
-                                                                        .black,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontSize:
-                                                                        16.0,
-                                                                  ),
-                                                                ),
-                                                                count: _model
-                                                                    .expressCountControllerValue ??= 0,
-                                                                updateCount:
-                                                                    (count) async {
-                                                                  setState(() =>
-                                                                      _model.expressCountControllerValue =
-                                                                          count);
-                                                                  FFAppState()
-                                                                          .expressCount =
-                                                                      _model
-                                                                          .expressCountControllerValue!;
-                                                                },
-                                                                stepSize: 1,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Expanded(
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          if (animationsMap[
-                                                                  'containerOnActionTriggerAnimation4'] !=
-                                                              null) {
-                                                            setState(() =>
-                                                                hasContainerTriggered4 =
-                                                                    true);
-                                                            SchedulerBinding
-                                                                .instance
-                                                                .addPostFrameCallback((_) async => await animationsMap[
-                                                                        'containerOnActionTriggerAnimation4']!
-                                                                    .controller
-                                                                    .forward(
-                                                                        from:
-                                                                            0.0));
-                                                          }
-                                                        },
-                                                        child: Material(
-                                                          color: Colors
-                                                              .transparent,
-                                                          elevation: 10.0,
-                                                          child: Container(
-                                                            width: 100.0,
-                                                            height: 80.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0x00FFFFFF),
-                                                              image:
-                                                                  DecorationImage(
-                                                                fit: BoxFit
-                                                                    .contain,
+                                                                color: Color(
+                                                                    0x00FFFFFF),
                                                                 image:
-                                                                    Image.asset(
-                                                                  'assets/images/3_copy.png',
-                                                                ).image,
-                                                              ),
-                                                            ),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceAround,
-                                                              children: [
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'Express',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Colors.black,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                          ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      '\$ 39',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Colors.black,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                          ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ).animateOnActionTrigger(
-                                                          animationsMap[
-                                                              'containerOnActionTriggerAnimation4']!,
-                                                          hasBeenTriggered:
-                                                              hasContainerTriggered4),
-                                                    ),
-                                                  ],
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'rowOnPageLoadAnimation2']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 20.0, 20.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      25.0,
-                                                                      0.0),
-                                                          child: Container(
-                                                            width: 120.0,
-                                                            height: 60.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0x00FFFFFF),
-                                                            ),
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: Container(
-                                                              width: 160.0,
-                                                              height: 80.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: Colors
-                                                                    .white,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            0.0),
-                                                                shape: BoxShape
-                                                                    .rectangle,
-                                                                border:
-                                                                    Border.all(
-                                                                  color: Color(
-                                                                      0xFF9E9E9E),
-                                                                  width: 1.0,
+                                                                    DecorationImage(
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                  image: Image
+                                                                      .asset(
+                                                                    'assets/images/3_copy.png',
+                                                                  ).image,
                                                                 ),
                                                               ),
-                                                              child:
-                                                                  FlutterFlowCountController(
-                                                                decrementIconBuilder:
-                                                                    (enabled) =>
-                                                                        FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .minus,
-                                                                  color: enabled
-                                                                      ? Color(
-                                                                          0xDD000000)
-                                                                      : Color(
-                                                                          0xFFEEEEEE),
-                                                                  size: 20.0,
-                                                                ),
-                                                                incrementIconBuilder:
-                                                                    (enabled) =>
-                                                                        FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .plus,
-                                                                  color: enabled
-                                                                      ? Colors
-                                                                          .blue
-                                                                      : Color(
-                                                                          0xFFEEEEEE),
-                                                                  size: 20.0,
-                                                                ),
-                                                                countBuilder:
-                                                                    (count) =>
-                                                                        Text(
-                                                                  count
-                                                                      .toString(),
-                                                                  style: GoogleFonts
-                                                                      .getFont(
-                                                                    'Roboto',
-                                                                    color: Colors
-                                                                        .black,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontSize:
-                                                                        16.0,
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceAround,
+                                                                children: [
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        '   VIP   ',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: Colors.black,
+                                                                              fontSize: 20.0,
+                                                                            ),
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                ),
-                                                                count: _model
-                                                                    .vIPCountControllerValue ??= 0,
-                                                                updateCount:
-                                                                    (count) async {
-                                                                  setState(() =>
-                                                                      _model.vIPCountControllerValue =
-                                                                          count);
-                                                                  FFAppState()
-                                                                          .vipCount =
-                                                                      _model
-                                                                          .vIPCountControllerValue!;
-                                                                },
-                                                                stepSize: 1,
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        '\$ 45',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              color: Colors.black,
+                                                                              fontSize: 20.0,
+                                                                            ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Expanded(
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          if (animationsMap[
-                                                                  'containerOnActionTriggerAnimation5'] !=
-                                                              null) {
-                                                            setState(() =>
-                                                                hasContainerTriggered5 =
-                                                                    true);
-                                                            SchedulerBinding
-                                                                .instance
-                                                                .addPostFrameCallback((_) async => await animationsMap[
-                                                                        'containerOnActionTriggerAnimation5']!
-                                                                    .controller
-                                                                    .forward(
-                                                                        from:
-                                                                            0.0));
-                                                          }
-                                                        },
-                                                        child: Material(
-                                                          color: Colors
-                                                              .transparent,
-                                                          elevation: 10.0,
-                                                          child: Container(
-                                                            width: 100.0,
-                                                            height: 80.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: Color(
-                                                                  0x00FFFFFF),
-                                                              image:
-                                                                  DecorationImage(
-                                                                fit: BoxFit
-                                                                    .contain,
-                                                                image:
-                                                                    Image.asset(
-                                                                  'assets/images/3_copy.png',
-                                                                ).image,
-                                                              ),
-                                                            ),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceAround,
-                                                              children: [
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      '   VIP   ',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Colors.black,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                          ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      '\$ 45',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Poppins',
-                                                                            color:
-                                                                                Colors.black,
-                                                                            fontSize:
-                                                                                20.0,
-                                                                          ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ).animateOnActionTrigger(
-                                                          animationsMap[
-                                                              'containerOnActionTriggerAnimation5']!,
-                                                          hasBeenTriggered:
-                                                              hasContainerTriggered5),
-                                                    ),
-                                                  ],
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'rowOnPageLoadAnimation3']!),
-                                              ),
-                                            ],
+                                                        ).animateOnActionTrigger(
+                                                            animationsMap[
+                                                                'containerOnActionTriggerAnimation5']!,
+                                                            hasBeenTriggered:
+                                                                hasContainerTriggered5),
+                                                      ),
+                                                    ],
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'rowOnPageLoadAnimation3']!),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
+                                ).animateOnActionTrigger(
+                                  animationsMap[
+                                      'containerOnActionTriggerAnimation2']!,
                                 ),
-                              ).animateOnActionTrigger(
-                                animationsMap[
-                                    'containerOnActionTriggerAnimation2']!,
-                              ),
                             ],
                           ),
                         ),

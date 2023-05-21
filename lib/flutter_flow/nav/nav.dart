@@ -142,7 +142,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'TicketDetail',
               path: 'ticketDetail',
-              builder: (context, params) => TicketDetailWidget(),
+              builder: (context, params) => TicketDetailWidget(
+                data: params.getParam('data', ParamType.JSON),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

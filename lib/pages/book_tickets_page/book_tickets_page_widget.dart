@@ -116,253 +116,175 @@ class _BookTicketsPageWidgetState extends State<BookTicketsPageWidget> {
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
-                child: Stack(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 0.9,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                      ),
-                      child: Builder(
-                        builder: (context) {
-                          final item = FairLandGroup.getAllFairTicketsCall
-                                  .getAllFairTicket(
-                                    bookTicketsPageGetAllFairTicketsResponse
-                                        .jsonBody,
-                                  )
-                                  ?.toList() ??
-                              [];
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            primary: false,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: item.length,
-                            itemBuilder: (context, itemIndex) {
-                              final itemItem = item[itemIndex];
-                              return Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 5.0, 0.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    image: DecorationImage(
-                                      fit: BoxFit.fill,
-                                      image: Image.network(
-                                        'https://i.pinimg.com/originals/3e/6a/e5/3e6ae5fe9a8fcd3667bc89b12474733b.png',
-                                      ).image,
-                                    ),
+                child: Builder(
+                  builder: (context) {
+                    final item = FairLandGroup.getAllFairTicketsCall
+                            .getAllFairTicket(
+                              bookTicketsPageGetAllFairTicketsResponse.jsonBody,
+                            )
+                            ?.toList() ??
+                        [];
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      primary: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: item.length,
+                      itemBuilder: (context, itemIndex) {
+                        final itemItem = item[itemIndex];
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              5.0, 5.0, 5.0, 5.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed(
+                                'TicketDetail',
+                                queryParams: {
+                                  'data': serializeParam(
+                                    itemItem,
+                                    ParamType.JSON,
                                   ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
-                                    child: Column(
+                                }.withoutNulls,
+                              );
+                            },
+                            child: Material(
+                              color: Colors.transparent,
+                              elevation: 1.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Container(
+                                width: double.infinity,
+                                height: 95.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: Image.network(
+                                      '',
+                                    ).image,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 0.0, 0.0, 0.0),
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            16.0),
-                                                    child: Image.network(
-                                                      'https://www.lonavala.wetnjoy.in/wp-content/uploads/2023/03/Buy-1-get-1-ticket-website-banner.webp',
-                                                      width: 106.0,
-                                                      height: 80.0,
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 0.0, 0.0),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
+                                                child: Image.network(
+                                                  'https://www.lonavala.wetnjoy.in/wp-content/uploads/2023/03/Buy-1-get-1-ticket-website-banner.webp',
+                                                  width: 106.0,
+                                                  height: 80.0,
+                                                  fit: BoxFit.contain,
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Column(
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
                                                     children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          if (!valueOrDefault<
-                                                              bool>(
-                                                            functions
-                                                                .isValueZero(
-                                                                    getJsonField(
-                                                              itemItem,
-                                                              r'''$.standard_count''',
-                                                            )),
-                                                            true,
-                                                          ))
-                                                            Text(
-                                                              '${getJsonField(
-                                                                itemItem,
-                                                                r'''$.standard_count''',
-                                                              ).toString()} X Standard Ticket',
-                                                              maxLines: 2,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color: Color(
-                                                                        0xFF2E60EE),
-                                                                  ),
-                                                            ),
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          if (valueOrDefault<
-                                                              bool>(
-                                                            functions
-                                                                .isValueZero(
-                                                                    getJsonField(
-                                                              itemItem,
-                                                              r'''$.express_count''',
-                                                            )),
-                                                            true,
-                                                          ))
-                                                            Text(
-                                                              '${getJsonField(
-                                                                itemItem,
-                                                                r'''$.express_count''',
-                                                              ).toString()} X Express Ticket',
-                                                              maxLines: 2,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color: Color(
-                                                                        0xFF2E60EE),
-                                                                  ),
-                                                            ),
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          if (valueOrDefault<
-                                                              bool>(
-                                                            functions
-                                                                .isValueZero(
-                                                                    getJsonField(
-                                                              itemItem,
-                                                              r'''$.vip_count''',
-                                                            )),
-                                                            true,
-                                                          ))
-                                                            Text(
-                                                              '${getJsonField(
-                                                                itemItem,
-                                                                r'''$.vip_count''',
-                                                              ).toString()} X VIP Ticket',
-                                                              maxLines: 2,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color: Color(
-                                                                        0xFF2E60EE),
-                                                                  ),
-                                                            ),
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        5.0,
-                                                                        0.0),
-                                                            child: Icon(
-                                                              Icons.access_time,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .timeColor,
-                                                              size: 25.0,
-                                                            ),
-                                                          ),
-                                                          Text(
-                                                            getJsonField(
-                                                              itemItem,
-                                                              r'''$.created_at''',
-                                                            ).toString(),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Color(
-                                                                      0xFF04BF78),
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ],
+                                                      Text(
+                                                        'Booking Ref no: ${functions.getBookingRefNumber(getJsonField(
+                                                          itemItem,
+                                                          r'''$.ticket_ref_id''',
+                                                        ).toString())}',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
                                                       ),
                                                     ],
                                                   ),
-                                                ),
-                                              ],
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
+                                                        child: Icon(
+                                                          Icons.access_time,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .timeColor,
+                                                          size: 25.0,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        getJsonField(
+                                                          itemItem,
+                                                          r'''$.created_at''',
+                                                        ).toString(),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Roboto',
+                                                              color: Color(
+                                                                  0xFF04BF78),
+                                                              fontSize: 13.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
-                                        Divider(
-                                          thickness: 1.0,
-                                          indent: 15.0,
-                                          endIndent: 15.0,
-                                        ),
                                       ],
                                     ),
-                                  ),
+                                  ],
                                 ),
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
                 ),
               ),
             ),

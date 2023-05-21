@@ -1,3 +1,5 @@
+import '/auth/supabase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -354,6 +356,37 @@ class _WalletsWidgetState extends State<WalletsWidget>
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
+                                            _model.apiResultfog =
+                                                await FairLandGroup
+                                                    .createFairTicketCall
+                                                    .call(
+                                              methodUrl: 'create_fair_ticket',
+                                              standardCount:
+                                                  FFAppState().standardCount,
+                                              standardPrice: 25,
+                                              expressCount:
+                                                  FFAppState().expressCount,
+                                              expressPrice: 39,
+                                              vipCount: FFAppState().vipCount,
+                                              vipPrice: 45,
+                                              userId: currentUserUid,
+                                            );
+                                            if ((_model
+                                                    .apiResultfog?.succeeded ??
+                                                true)) {
+                                              FFAppState().update(() {
+                                                FFAppState()
+                                                    .containerVisibility = true;
+                                              });
+                                              Navigator.pop(context);
+
+                                              context
+                                                  .pushNamed('PaymentSuccess');
+                                            }
+
+                                            setState(() {});
+                                          },
+                                          onDoubleTap: () async {
                                             FFAppState().update(() {
                                               FFAppState().containerVisibility =
                                                   true;

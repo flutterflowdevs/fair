@@ -14,3 +14,13 @@ bool? isValueZero(dynamic data) {
   int value = data;
   return value == 0;
 }
+
+String getBookingRefNumber(String value) {
+  return value.substring(0, 8).toUpperCase();
+}
+
+int getSumOfTicketValue(dynamic value) {
+  return value['standard_count'] * value['standard_price'] +
+      value['express_count'] * value['express_price'] +
+      value['vip_count'] * value['vip_price'];
+}

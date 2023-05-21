@@ -274,10 +274,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     fit: BoxFit.cover,
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, -0.9),
+                    alignment: AlignmentDirectional(0.28, -0.89),
                     child: Image.asset(
-                      'assets/images/logo_them_park_(5).png',
-                      height: 100.0,
+                      'assets/images/My_project_(2).png',
+                      height: 96.0,
                       fit: BoxFit.cover,
                     ).animateOnPageLoad(
                         animationsMap['imageOnPageLoadAnimation3']!),

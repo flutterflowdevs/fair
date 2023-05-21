@@ -1,19 +1,23 @@
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'ticket_detail_model.dart';
 export 'ticket_detail_model.dart';
 
 class TicketDetailWidget extends StatefulWidget {
-  const TicketDetailWidget({Key? key}) : super(key: key);
+  const TicketDetailWidget({
+    Key? key,
+    this.data,
+  }) : super(key: key);
+
+  final dynamic data;
 
   @override
   _TicketDetailWidgetState createState() => _TicketDetailWidgetState();
@@ -29,18 +33,6 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
   var hasContainerTriggered2 = false;
   var hasContainerTriggered3 = false;
   final animationsMap = {
-    'rowOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 2000.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
     'containerOnActionTriggerAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: false,
@@ -54,18 +46,6 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
         ),
       ],
     ),
-    'rowOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 2000.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
     'containerOnActionTriggerAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: false,
@@ -76,18 +56,6 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
           duration: 200.ms,
           begin: Offset(0.8, 0.8),
           end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 2000.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
         ),
       ],
     ),
@@ -227,109 +195,58 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 20.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 20.0, 0.0),
-                                            child: Container(
-                                              width: 120.0,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x00FFFFFF),
-                                              ),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                if (!valueOrDefault<bool>(
+                                  functions.isValueZero(getJsonField(
+                                    widget.data,
+                                    r'''$.standard_count''',
+                                  )),
+                                  true,
+                                ))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 20.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 20.0, 0.0),
                                               child: Container(
-                                                width: 160.0,
-                                                height: 80.0,
+                                                width: 120.0,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          0.0),
-                                                  shape: BoxShape.rectangle,
-                                                  border: Border.all(
-                                                    color: Color(0xFF9E9E9E),
-                                                    width: 1.0,
-                                                  ),
+                                                  color: Color(0x00FFFFFF),
                                                 ),
-                                                child:
-                                                    FlutterFlowCountController(
-                                                  decrementIconBuilder:
-                                                      (enabled) => FaIcon(
-                                                    FontAwesomeIcons.minus,
-                                                    color: enabled
-                                                        ? Color(0xDD000000)
-                                                        : Color(0xFFEEEEEE),
-                                                    size: 20.0,
-                                                  ),
-                                                  incrementIconBuilder:
-                                                      (enabled) => FaIcon(
-                                                    FontAwesomeIcons.plus,
-                                                    color: enabled
-                                                        ? Colors.blue
-                                                        : Color(0xFFEEEEEE),
-                                                    size: 20.0,
-                                                  ),
-                                                  countBuilder: (count) => Text(
-                                                    count.toString(),
-                                                    style: GoogleFonts.getFont(
-                                                      'Roboto',
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 16.0,
-                                                    ),
-                                                  ),
-                                                  count: _model
-                                                      .standardCountControllerValue ??= 0,
-                                                  updateCount: (count) async {
-                                                    setState(() => _model
-                                                            .standardCountControllerValue =
-                                                        count);
-                                                    FFAppState().standardCount =
-                                                        _model
-                                                            .standardCountControllerValue!;
-                                                  },
-                                                  stepSize: 1,
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Text(
+                                                  '${getJsonField(
+                                                    widget.data,
+                                                    r'''$.standard_count''',
+                                                  ).toString()} X ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .blkToWyt,
+                                                        fontSize: 16.0,
+                                                      ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      Expanded(
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            if (animationsMap[
-                                                    'containerOnActionTriggerAnimation3'] !=
-                                                null) {
-                                              setState(() =>
-                                                  hasContainerTriggered3 =
-                                                      true);
-                                              SchedulerBinding.instance
-                                                  .addPostFrameCallback((_) async =>
-                                                      await animationsMap[
-                                                              'containerOnActionTriggerAnimation3']!
-                                                          .controller
-                                                          .forward(from: 0.0));
-                                            }
-                                          },
+                                          ],
+                                        ),
+                                        Expanded(
                                           child: Material(
                                             color: Colors.transparent,
                                             elevation: 10.0,
@@ -387,7 +304,10 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
                                                             .start,
                                                     children: [
                                                       Text(
-                                                        '\$ 25',
+                                                        '\$ ${getJsonField(
+                                                          widget.data,
+                                                          r'''$.standard_price''',
+                                                        ).toString()}',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
@@ -404,120 +324,67 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
                                                 ],
                                               ),
                                             ),
-                                          ),
-                                        ).animateOnActionTrigger(
-                                            animationsMap[
-                                                'containerOnActionTriggerAnimation1']!,
-                                            hasBeenTriggered:
-                                                hasContainerTriggered1),
-                                      ),
-                                    ],
-                                  ).animateOnPageLoad(animationsMap[
-                                      'rowOnPageLoadAnimation1']!),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 20.0, 20.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 25.0, 0.0),
-                                            child: Container(
-                                              width: 120.0,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x00FFFFFF),
-                                              ),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                          ).animateOnActionTrigger(
+                                              animationsMap[
+                                                  'containerOnActionTriggerAnimation1']!,
+                                              hasBeenTriggered:
+                                                  hasContainerTriggered1),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                if (!valueOrDefault<bool>(
+                                  functions.isValueZero(getJsonField(
+                                    widget.data,
+                                    r'''$.express_count''',
+                                  )),
+                                  true,
+                                ))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 20.0, 20.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 25.0, 0.0),
                                               child: Container(
-                                                width: 160.0,
-                                                height: 80.0,
+                                                width: 120.0,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          0.0),
-                                                  shape: BoxShape.rectangle,
-                                                  border: Border.all(
-                                                    color: Color(0xFF9E9E9E),
-                                                    width: 1.0,
-                                                  ),
+                                                  color: Color(0x00FFFFFF),
                                                 ),
-                                                child:
-                                                    FlutterFlowCountController(
-                                                  decrementIconBuilder:
-                                                      (enabled) => FaIcon(
-                                                    FontAwesomeIcons.minus,
-                                                    color: enabled
-                                                        ? Color(0xDD000000)
-                                                        : Color(0xFFEEEEEE),
-                                                    size: 20.0,
-                                                  ),
-                                                  incrementIconBuilder:
-                                                      (enabled) => FaIcon(
-                                                    FontAwesomeIcons.plus,
-                                                    color: enabled
-                                                        ? Colors.blue
-                                                        : Color(0xFFEEEEEE),
-                                                    size: 20.0,
-                                                  ),
-                                                  countBuilder: (count) => Text(
-                                                    count.toString(),
-                                                    style: GoogleFonts.getFont(
-                                                      'Roboto',
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 16.0,
-                                                    ),
-                                                  ),
-                                                  count: _model
-                                                      .expressCountControllerValue ??= 0,
-                                                  updateCount: (count) async {
-                                                    setState(() => _model
-                                                            .expressCountControllerValue =
-                                                        count);
-                                                    FFAppState().expressCount =
-                                                        _model
-                                                            .expressCountControllerValue!;
-                                                  },
-                                                  stepSize: 1,
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Text(
+                                                  '${getJsonField(
+                                                    widget.data,
+                                                    r'''$.express_count''',
+                                                  ).toString()} X ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .blkToWyt,
+                                                        fontSize: 16.0,
+                                                      ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      Expanded(
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            if (animationsMap[
-                                                    'containerOnActionTriggerAnimation4'] !=
-                                                null) {
-                                              setState(() =>
-                                                  hasContainerTriggered4 =
-                                                      true);
-                                              SchedulerBinding.instance
-                                                  .addPostFrameCallback((_) async =>
-                                                      await animationsMap[
-                                                              'containerOnActionTriggerAnimation4']!
-                                                          .controller
-                                                          .forward(from: 0.0));
-                                            }
-                                          },
+                                          ],
+                                        ),
+                                        Expanded(
                                           child: Material(
                                             color: Colors.transparent,
                                             elevation: 10.0,
@@ -575,7 +442,10 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
                                                             .start,
                                                     children: [
                                                       Text(
-                                                        '\$ 39',
+                                                        '\$ ${getJsonField(
+                                                          widget.data,
+                                                          r'''$.express_price''',
+                                                        ).toString()}',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
@@ -592,119 +462,67 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
                                                 ],
                                               ),
                                             ),
-                                          ),
-                                        ).animateOnActionTrigger(
-                                            animationsMap[
-                                                'containerOnActionTriggerAnimation2']!,
-                                            hasBeenTriggered:
-                                                hasContainerTriggered2),
-                                      ),
-                                    ],
-                                  ).animateOnPageLoad(animationsMap[
-                                      'rowOnPageLoadAnimation2']!),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 20.0, 20.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 25.0, 0.0),
-                                            child: Container(
-                                              width: 120.0,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x00FFFFFF),
-                                              ),
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
+                                          ).animateOnActionTrigger(
+                                              animationsMap[
+                                                  'containerOnActionTriggerAnimation2']!,
+                                              hasBeenTriggered:
+                                                  hasContainerTriggered2),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                if (!valueOrDefault<bool>(
+                                  functions.isValueZero(getJsonField(
+                                    widget.data,
+                                    r'''$.vip_count''',
+                                  )),
+                                  true,
+                                ))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 20.0, 20.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 25.0, 0.0),
                                               child: Container(
-                                                width: 160.0,
-                                                height: 80.0,
+                                                width: 120.0,
+                                                height: 60.0,
                                                 decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          0.0),
-                                                  shape: BoxShape.rectangle,
-                                                  border: Border.all(
-                                                    color: Color(0xFF9E9E9E),
-                                                    width: 1.0,
-                                                  ),
+                                                  color: Color(0x00FFFFFF),
                                                 ),
-                                                child:
-                                                    FlutterFlowCountController(
-                                                  decrementIconBuilder:
-                                                      (enabled) => FaIcon(
-                                                    FontAwesomeIcons.minus,
-                                                    color: enabled
-                                                        ? Color(0xDD000000)
-                                                        : Color(0xFFEEEEEE),
-                                                    size: 20.0,
-                                                  ),
-                                                  incrementIconBuilder:
-                                                      (enabled) => FaIcon(
-                                                    FontAwesomeIcons.plus,
-                                                    color: enabled
-                                                        ? Colors.blue
-                                                        : Color(0xFFEEEEEE),
-                                                    size: 20.0,
-                                                  ),
-                                                  countBuilder: (count) => Text(
-                                                    count.toString(),
-                                                    style: GoogleFonts.getFont(
-                                                      'Roboto',
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 16.0,
-                                                    ),
-                                                  ),
-                                                  count: _model
-                                                      .vIPCountControllerValue ??= 0,
-                                                  updateCount: (count) async {
-                                                    setState(() => _model
-                                                            .vIPCountControllerValue =
-                                                        count);
-                                                    FFAppState().vipCount = _model
-                                                        .vIPCountControllerValue!;
-                                                  },
-                                                  stepSize: 1,
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Text(
+                                                  '${getJsonField(
+                                                    widget.data,
+                                                    r'''$.vip_count''',
+                                                  ).toString()} X ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .blkToWyt,
+                                                        fontSize: 16.0,
+                                                      ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      Expanded(
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            if (animationsMap[
-                                                    'containerOnActionTriggerAnimation5'] !=
-                                                null) {
-                                              setState(() =>
-                                                  hasContainerTriggered5 =
-                                                      true);
-                                              SchedulerBinding.instance
-                                                  .addPostFrameCallback((_) async =>
-                                                      await animationsMap[
-                                                              'containerOnActionTriggerAnimation5']!
-                                                          .controller
-                                                          .forward(from: 0.0));
-                                            }
-                                          },
+                                          ],
+                                        ),
+                                        Expanded(
                                           child: Material(
                                             color: Colors.transparent,
                                             elevation: 10.0,
@@ -762,7 +580,10 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
                                                             .start,
                                                     children: [
                                                       Text(
-                                                        '\$ 45',
+                                                        '\$ ${getJsonField(
+                                                          widget.data,
+                                                          r'''$.vip_price''',
+                                                        ).toString()}',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
@@ -779,17 +600,15 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
                                                 ],
                                               ),
                                             ),
-                                          ),
-                                        ).animateOnActionTrigger(
-                                            animationsMap[
-                                                'containerOnActionTriggerAnimation3']!,
-                                            hasBeenTriggered:
-                                                hasContainerTriggered3),
-                                      ),
-                                    ],
-                                  ).animateOnPageLoad(animationsMap[
-                                      'rowOnPageLoadAnimation3']!),
-                                ),
+                                          ).animateOnActionTrigger(
+                                              animationsMap[
+                                                  'containerOnActionTriggerAnimation3']!,
+                                              hasBeenTriggered:
+                                                  hasContainerTriggered3),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                               ],
                             ),
                           ),
@@ -806,7 +625,10 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
-                                  'Booking Id:-  dsfsdfsdf',
+                                  'Booking Id:- ${functions.getBookingRefNumber(getJsonField(
+                                    widget.data,
+                                    r'''$.ticket_ref_id''',
+                                  ).toString())}',
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
                                       .override(
@@ -825,7 +647,7 @@ class _TicketDetailWidgetState extends State<TicketDetailWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
-                                  'Total Amount Paid -\$ 500',
+                                  'Total Amount Paid -\$ ${functions.getSumOfTicketValue(widget.data!).toString()}',
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
                                       .override(

@@ -178,7 +178,7 @@ class CreateFairTicketCall {
     "standard_price": ${standardPrice},
     "express_price": ${expressPrice},
     "vip_price": ${vipPrice},
-    "user_id": ${userId}
+    "user_id": "${userId}"
   }
 }''';
     return ApiManager.instance.makeApiCall(
@@ -254,7 +254,7 @@ class GetAllFairTicketsCall {
   "method_type": "GET",
   "method_url": "${methodUrl}",
   "query_params": {
-    "user_id": ${userId}
+    "user_id": "${userId}"
   }
 }''';
     return ApiManager.instance.makeApiCall(
