@@ -138,6 +138,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'BookTicketsPage',
               path: 'bookTicketsPage',
               builder: (context, params) => BookTicketsPageWidget(),
+            ),
+            FFRoute(
+              name: 'TicketDetail',
+              path: 'ticketDetail',
+              builder: (context, params) => TicketDetailWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

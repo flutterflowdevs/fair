@@ -272,7 +272,7 @@ class _TicketWidgetState extends State<TicketWidget> {
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
-                                                                    '11:00 AM - 10 PM',
+                                                                    '11:00 - 22:00',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium
@@ -357,7 +357,7 @@ class _TicketWidgetState extends State<TicketWidget> {
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Text(
-                                                                              'FAIR PASS',
+                                                                              'ONE DAY PASS',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Color(0xFFAAAAAA),
@@ -369,7 +369,7 @@ class _TicketWidgetState extends State<TicketWidget> {
                                                                           ],
                                                                         ),
                                                                         Text(
-                                                                          'WONDER FAIR, NYC USA',
+                                                                          'Adventure Kingdom, NYC USA',
                                                                           textAlign:
                                                                               TextAlign.start,
                                                                           style: FlutterFlowTheme.of(context)

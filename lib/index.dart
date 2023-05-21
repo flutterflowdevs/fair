@@ -14,3 +14,4 @@ export '/pages/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/pages/rules_page/rules_page_widget.dart' show RulesPageWidget;
 export '/pages/book_tickets_page/book_tickets_page_widget.dart'
     show BookTicketsPageWidget;
+export '/pages/ticket_detail/ticket_detail_widget.dart' show TicketDetailWidget;

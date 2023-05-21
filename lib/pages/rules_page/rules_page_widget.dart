@@ -90,11 +90,14 @@ class _RulesPageWidgetState extends State<RulesPageWidget> {
                         child: Text(
                           'Dear Guests,\n\nWe try to offer a comfortable, safe and most memorable experience to all our guests. You have to follow the following measures to have wonderful experience at our park.\n\n- Entry is restricted to one person per ticket, which is valid only for a date and specified time.\n\n- Tickets are non-transferable and non-refundable.\n\n- Foods from outside and alcoholic drinks are not allowed inside park.\n\n- Intoxicated persons are not allowed to enter the park.\n\n- All persons, bags luggage and parcels and any other items is subject to security check at the point of entry to the park and at such other locations inside the park as we consider appropriate.\n\n- Please show common courtesy to fellow park guests and our service staff. \n\n- Do not use any foul language and engage in unsafe and offensive behavior.\n\n- Please maintain discipline in ride queue area. Members of the group are not allowed to join those already in queue.\n\n- Proper clothes must be worn all the times while visiting the park.\n\n- For your enjoyment, and in the interest of hygiene and safety, a dress code is enforced in the park.\n\n- Always wear Polyester or Nylon costumes (t-shirts, shorts, bermudas, three-fourths, or swim suits) while enjoying the Water Rides.\n \n- Dress like Sarees, churidars/salwars, dupatta, formal pants, shirts, burkhas/pardas, school uniforms, denims (jeans and three-fourth jeans), cargos and indecent attires are not permitted in the water park and certain high thrill rides.\n\n- Do not wear scarfs or shawls while enjoying a ride to ensure the safety of all the visitors at park. \nSince many rides inside the park are adventurous in nature, guests are advised to follow safety instructions of lifeguards, ride operators and displayed instructions near rides for safe riding. \n\n- Management will not be responsible for any injury/accident due to negligence of Guests.\nPools are shallow. Do not dive into pools.\nPregnant Women, heart patients, persons with high blood pressure and those prone to epilepsy are advised to avoid fast/adventurous rides.\nParents are advised to pay special attention to their Children. Children should be accompanied by adults.\n\n- There are certain height and weight restrictions in some rides for safety reasons.\nGuests below stipulated height and guests above certain weights are not permitted in some rides.\n\n- Guests may have to leave the park even before closing time if the situation warrants.\nThe management reserves the right to close any ride at any time for safety/technical reasons without prior notice.\n\n- The management has the right to cancel l the ticket and remove any person from the park premises, if misbehaviour or violation of park rules is reported from his/her part.\n\n- Smoking is prohibited in the common areas of the park. Kindly use the specified area for the same.\n\n- Pet animals are not allowed inside the park.',
                           textAlign: TextAlign.start,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 20.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Poppins',
+                                color: FlutterFlowTheme.of(context).blkToWyt,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ),
                     ),

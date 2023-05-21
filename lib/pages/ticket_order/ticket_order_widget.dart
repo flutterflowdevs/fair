@@ -769,7 +769,7 @@ class _TicketOrderWidgetState extends State<TicketOrderWidget>
                                                               AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: Text(
-                                                            '24',
+                                                            '  ',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -819,7 +819,9 @@ class _TicketOrderWidgetState extends State<TicketOrderWidget>
                                                                         .start,
                                                                 children: [
                                                                   Text(
-                                                                    'Jan  2023',
+                                                                    dateTimeFormat(
+                                                                        'yMMMd',
+                                                                        getCurrentTimestamp),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium
