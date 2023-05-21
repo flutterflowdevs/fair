@@ -24,3 +24,7 @@ int getSumOfTicketValue(dynamic value) {
       value['express_count'] * value['express_price'] +
       value['vip_count'] * value['vip_price'];
 }
+
+List<int> getIntListFromJson(dynamic value) {
+  return value['favourite_ids'];
+}

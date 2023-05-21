@@ -13,12 +13,19 @@ class FFAppState extends ChangeNotifier {
 
   FFAppState._internal();
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _userFavRideIds =
+        prefs.getStringList('ff_userFavRideIds')?.map(int.parse).toList() ??
+            _userFavRideIds;
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   bool _isfavourite = false;
   bool get isfavourite => _isfavourite;
@@ -128,6 +135,41 @@ class FFAppState extends ChangeNotifier {
   int get vipCount => _vipCount;
   set vipCount(int _value) {
     _vipCount = _value;
+  }
+
+  List<int> _userFavRideIds = [];
+  List<int> get userFavRideIds => _userFavRideIds;
+  set userFavRideIds(List<int> _value) {
+    _userFavRideIds = _value;
+    prefs.setStringList(
+        'ff_userFavRideIds', _value.map((x) => x.toString()).toList());
+  }
+
+  void addToUserFavRideIds(int _value) {
+    _userFavRideIds.add(_value);
+    prefs.setStringList(
+        'ff_userFavRideIds', _userFavRideIds.map((x) => x.toString()).toList());
+  }
+
+  void removeFromUserFavRideIds(int _value) {
+    _userFavRideIds.remove(_value);
+    prefs.setStringList(
+        'ff_userFavRideIds', _userFavRideIds.map((x) => x.toString()).toList());
+  }
+
+  void removeAtIndexFromUserFavRideIds(int _index) {
+    _userFavRideIds.removeAt(_index);
+    prefs.setStringList(
+        'ff_userFavRideIds', _userFavRideIds.map((x) => x.toString()).toList());
+  }
+
+  void updateUserFavRideIdsAtIndex(
+    int _index,
+    Function(int) updateFn,
+  ) {
+    updateFn(_userFavRideIds[_index]);
+    prefs.setStringList(
+        'ff_userFavRideIds', _userFavRideIds.map((x) => x.toString()).toList());
   }
 }
 

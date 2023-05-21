@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'dart:async';
@@ -32,7 +34,7 @@ class MapWidget extends StatefulWidget {
   _MapWidgetState createState() => _MapWidgetState();
 }
 
-class _MapViewWidget extends State<MapWidget>
+class _MapWidgetState extends State<MapWidget>
     with SingleTickerProviderStateMixin {
   AnimationController? _animationController;
   List<PinModel> listPin = [];
@@ -59,29 +61,29 @@ class _MapViewWidget extends State<MapWidget>
     _animationController!.repeat(reverse: true);
 
     listPin.add(PinModel(
-        "Pin 0", "2smukSYdiI32pFPmFglF", "Ride", rideIcon, panelController));
+        "Pin 0", 4, "Ride", rideIcon, panelController, widget.data["data"][0]));
     listPin.add(PinModel(
-        "Pin 1", "BWtNCpGqrQHZmNTNF9XB", "Ride", rideIcon, panelController));
+        "Pin 1", 5, "Ride", rideIcon, panelController, widget.data["data"][1]));
     listPin.add(PinModel(
-        "Pin 2", "EapnvmR8jEytcVORyjDX", "Ride", rideIcon, panelController));
+        "Pin 2", 6, "Ride", rideIcon, panelController, widget.data["data"][2]));
     listPin.add(PinModel(
-        "Pin 3", "J1VRmLcid8PXh8FUOje7", "Ride", rideIcon, panelController));
+        "Pin 3", 8, "Ride", rideIcon, panelController, widget.data["data"][3]));
+    listPin.add(PinModel("Pin 4", 10, "Ride", rideIcon, panelController,
+        widget.data["data"][4]));
+    listPin.add(PinModel("Pin 5", 11, "Ride", rideIcon, panelController,
+        widget.data["data"][5]));
     listPin.add(PinModel(
-        "Pin 4", "V1MOfYLBTuWaBm10FjaH", "Ride", rideIcon, panelController));
+        "Pin 6", 9, "Food", foodIcon, panelController, widget.data["data"][6]));
+    listPin.add(PinModel("Pin 7", 14, "Food", foodIcon, panelController,
+        widget.data["data"][7]));
+    listPin.add(PinModel("Pin 8", 13, "Food", foodIcon, panelController,
+        widget.data["data"][8]));
     listPin.add(PinModel(
-        "Pin 5", "YcUE5DCvygSXNgG95QWe", "Ride", rideIcon, panelController));
-    listPin.add(PinModel(
-        "Pin 6", "Nx3qDuQxwuCbQa60tnDx", "Food", foodIcon, panelController));
-    listPin.add(PinModel(
-        "Pin 7", "zIjdtO1dijgtKjhva0Jl", "Food", foodIcon, panelController));
-    listPin.add(PinModel(
-        "Pin 8", "rZKlLis0KClSpEO1I4mw", "Food", foodIcon, panelController));
-    listPin.add(PinModel(
-        "Pin 9", "1vPFrg3xUqAIGdukuYZV", "Show", showIcon, panelController));
-    listPin.add(PinModel(
-        "Pin 10", "F9Rs7CeYlL1AIb78VC9J", "Show", showIcon, panelController));
-    listPin.add(PinModel(
-        "Pin 11", "ars7fuis7pREUnwaOpgQ", "Show", showIcon, panelController));
+        "Pin 9", 3, "Show", showIcon, panelController, widget.data["data"][9]));
+    listPin.add(PinModel("Pin 10", 7, "Show", showIcon, panelController,
+        widget.data["data"][10]));
+    listPin.add(PinModel("Pin 11", 12, "Show", showIcon, panelController,
+        widget.data["data"][11]));
     startTimer();
     super.initState();
   }
@@ -428,11 +430,12 @@ class _MapViewWidget extends State<MapWidget>
 
 class PinModel {
   String title;
-  String id;
+  int id;
   String filterType;
   String img;
   PanelController panelController;
+  dynamic apiData;
 
-  PinModel(
-      this.title, this.id, this.filterType, this.img, this.panelController);
+  PinModel(this.title, this.id, this.filterType, this.img, this.panelController,
+      this.apiData);
 }

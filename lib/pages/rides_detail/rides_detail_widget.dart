@@ -373,33 +373,64 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
-                                          child: Icon(
-                                            Icons.favorite_border,
-                                            color: FlutterFlowTheme.of(context)
-                                                .timeColor,
-                                            size: 24.0,
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        setState(() {
+                                          FFAppState().userFavRideIds =
+                                              ridesDetailUsersRow!.favouriteIds
+                                                  .toList();
+                                        });
+                                        setState(() {
+                                          FFAppState()
+                                              .addToUserFavRideIds(getJsonField(
+                                            widget.data,
+                                            r'''$.id''',
+                                          ));
+                                        });
+                                        await UsersTable().update(
+                                          data: {
+                                            'favourite_ids':
+                                                FFAppState().userFavRideIds,
+                                          },
+                                          matchingRows: (rows) => rows.eq(
+                                            'id',
+                                            currentUserUid,
                                           ),
-                                        ),
-                                        Text(
-                                          'Add to Favourites',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                fontSize: 13.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                        ),
-                                      ],
+                                        );
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: Icon(
+                                              Icons.favorite_border,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .timeColor,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                          Text(
+                                            'Add to Favourites',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  fontSize: 13.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 if (valueOrDefault<bool>(
@@ -413,32 +444,62 @@ class _RidesDetailWidgetState extends State<RidesDetailWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
-                                          child: Icon(
-                                            Icons.favorite,
-                                            color: Color(0xFFFF0000),
-                                            size: 24.0,
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        setState(() {
+                                          FFAppState().userFavRideIds =
+                                              ridesDetailUsersRow!.favouriteIds
+                                                  .toList();
+                                        });
+                                        setState(() {
+                                          FFAppState().removeFromUserFavRideIds(
+                                              getJsonField(
+                                            widget.data,
+                                            r'''$.id''',
+                                          ));
+                                        });
+                                        await UsersTable().update(
+                                          data: {
+                                            'favourite_ids':
+                                                FFAppState().userFavRideIds,
+                                          },
+                                          matchingRows: (rows) => rows.eq(
+                                            'id',
+                                            currentUserUid,
                                           ),
-                                        ),
-                                        Text(
-                                          'Remove From Favourites',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                fontSize: 13.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                        ),
-                                      ],
+                                        );
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: Icon(
+                                              Icons.favorite,
+                                              color: Color(0xFFFF0000),
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                          Text(
+                                            'Remove From Favourites',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  fontSize: 13.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 Padding(

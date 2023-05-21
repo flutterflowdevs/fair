@@ -8,6 +8,10 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:theme_park/components/map_popup/map_popup_widget.dart';
+
+import 'index.dart'; // Imports other custom widgets
+
 import 'index.dart'; // Imports other custom widgets
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -43,9 +47,7 @@ class _MarkerPinState extends State<MarkerPin> {
                   backgroundColor: Colors.transparent,
                   builder: (context) {
                     return MapPopupWidget(
-                      dataReff: FirebaseFirestore.instance
-                          .collection("amusementpark")
-                          .doc(widget.data.id),
+                      dataReff: widget.data.apiData,
                     );
                   });
             },

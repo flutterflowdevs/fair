@@ -25,6 +25,8 @@ class FairLandGroup {
   static GetListOfUserFavCall getListOfUserFavCall = GetListOfUserFavCall();
   static GetAllFairTicketsCall getAllFairTicketsCall = GetAllFairTicketsCall();
   static AddToUsersFavCall addToUsersFavCall = AddToUsersFavCall();
+  static GetAuthenticateUserRecordsCall getAuthenticateUserRecordsCall =
+      GetAuthenticateUserRecordsCall();
 }
 
 class GetAmusementParkDetailsByIdCall {
@@ -317,6 +319,41 @@ class AddToUsersFavCall {
         response,
         r'''$.data''',
         true,
+      );
+}
+
+class GetAuthenticateUserRecordsCall {
+  Future<ApiCallResponse> call({
+    String? userId = '',
+  }) {
+    final body = '''
+{
+  "method_type": "GET",
+  "method_url": "get_user_detail_by_id",
+  "query_params": {
+    "id": "${userId}"
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get Authenticate User Records',
+      apiUrl: '${FairLandGroup.baseUrl}/dart_edge',
+      callType: ApiCallType.POST,
+      headers: {
+        ...FairLandGroup.headers,
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic userRecord(dynamic response) => getJsonField(
+        response,
+        r'''$.data[0]''',
       );
 }
 

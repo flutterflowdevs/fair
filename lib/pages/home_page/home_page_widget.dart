@@ -1,7 +1,10 @@
+import '/auth/supabase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -73,9 +76,23 @@ class _HomePageWidgetState extends State<HomePageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 4000));
+      _model.apiResultkrj =
+          await FairLandGroup.getAuthenticateUserRecordsCall.call(
+        userId: currentUserUid,
+      );
+      if ((_model.apiResultkrj?.succeeded ?? true)) {
+        setState(() {
+          FFAppState().userFavRideIds = functions
+              .getIntListFromJson(getJsonField(
+                (_model.apiResultkrj?.jsonBody ?? ''),
+                r'''$.favourite_ids''',
+              ))
+              .toList();
+        });
+        await Future.delayed(const Duration(milliseconds: 4000));
 
-      context.goNamed('map_view');
+        context.goNamed('map_view');
+      }
     });
   }
 

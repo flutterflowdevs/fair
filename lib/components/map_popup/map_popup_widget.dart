@@ -85,7 +85,10 @@ class _MapPopupWidgetState extends State<MapPopupWidget> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10.0),
                               child: Image.network(
-                                'https://picsum.photos/seed/133/600',
+                                getJsonField(
+                                  widget.dataReff,
+                                  r'''$.img''',
+                                ),
                                 width: double.infinity,
                                 fit: BoxFit.fitWidth,
                               ),

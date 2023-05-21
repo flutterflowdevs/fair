@@ -77,10 +77,10 @@ class _MapViewWidgetState extends State<MapViewWidget> {
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width * 1.0,
-                      height: MediaQuery.of(context).size.height * 0.91,
+                      height: MediaQuery.of(context).size.height * 0.87,
                       child: custom_widgets.MapWidget(
                         width: MediaQuery.of(context).size.width * 1.0,
-                        height: MediaQuery.of(context).size.height * 0.91,
+                        height: MediaQuery.of(context).size.height * 0.87,
                         data:
                             mapViewGetAllAmusementParksDetailsResponse.jsonBody,
                       ),
