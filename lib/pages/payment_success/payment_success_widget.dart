@@ -1,3 +1,5 @@
+import '/auth/supabase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -45,67 +47,97 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).blkToWyt,
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Lottie.asset(
-                      'assets/lottie_animations/lf20_7W0ppe.json',
-                      height: 500.0,
-                      fit: BoxFit.cover,
-                      reverse: true,
-                      animate: true,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 200.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    setState(() {
-                      FFAppState().isMap = false;
-                    });
-
-                    context.pushNamed('map_view');
-                  },
-                  text: 'Payment Done',
-                  options: FFButtonOptions(
-                    width: 275.6,
-                    height: 60.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: Color(0xFF00FF96),
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).blkToWyt,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                    elevation: 2.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+    return FutureBuilder<ApiCallResponse>(
+      future: FairLandGroup.createFairTicketCall.call(
+        methodUrl: 'create_fair_ticket',
+        standardCount: FFAppState().standardCount,
+        standardPrice: 25,
+        userId: currentUserUid,
+        expressCount: FFAppState().expressCount,
+        expressPrice: 39,
+        vipCount: FFAppState().vipCount,
+        vipPrice: 45,
       ),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Center(
+            child: SizedBox(
+              width: 50.0,
+              height: 50.0,
+              child: CircularProgressIndicator(
+                color: FlutterFlowTheme.of(context).primary,
+              ),
+            ),
+          );
+        }
+        final paymentSuccessCreateFairTicketResponse = snapshot.data!;
+        return GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).blkToWyt,
+            body: SafeArea(
+              top: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Lottie.asset(
+                          'assets/lottie_animations/lf20_7W0ppe.json',
+                          height: 500.0,
+                          fit: BoxFit.cover,
+                          reverse: true,
+                          animate: true,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 200.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        setState(() {
+                          FFAppState().isMap = false;
+                        });
+
+                        context.pushNamed('map_view');
+                      },
+                      text: 'Payment Done',
+                      options: FFButtonOptions(
+                        width: 275.6,
+                        height: 60.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: Color(0xFF00FF96),
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Roboto',
+                                  color: FlutterFlowTheme.of(context).blkToWyt,
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                        elevation: 2.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

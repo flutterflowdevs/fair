@@ -165,7 +165,7 @@ class CreateFairTicketCall {
     int? expressPrice,
     int? vipCount,
     int? vipPrice,
-    int? userId,
+    String? userId = '',
   }) {
     final body = '''
 {
@@ -247,7 +247,7 @@ class GetListOfUserFavCall {
 class GetAllFairTicketsCall {
   Future<ApiCallResponse> call({
     String? methodUrl = '',
-    int? userId,
+    String? userId = '',
   }) {
     final body = '''
 {

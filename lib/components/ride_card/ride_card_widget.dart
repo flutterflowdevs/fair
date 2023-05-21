@@ -57,100 +57,120 @@ class _RideCardWidgetState extends State<RideCardWidget> {
         children: [
           Align(
             alignment: AlignmentDirectional(-1.0, -1.0),
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.55,
-              height: 460.0,
-              decoration: BoxDecoration(
-                color: Color(0x00FEF8F3),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Color(0xFFC7DCEF),
-                      elevation: 5.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(35.0),
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
-                              child: Container(
-                                width: double.infinity,
-                                height: 220.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFC7DCEF),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 15.0, 15.0, 15.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 20.0),
-                                        child: Text(
-                                          getJsonField(
-                                            widget.data,
-                                            r'''$.title''',
-                                          ).toString(),
-                                          maxLines: 1,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Lato',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .blkToWyt,
-                                                fontSize: 20.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
+            child: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pushNamed(
+                  'Rides_detail',
+                  queryParams: {
+                    'data': serializeParam(
+                      widget.data,
+                      ParamType.JSON,
+                    ),
+                  }.withoutNulls,
+                );
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.55,
+                height: 460.0,
+                decoration: BoxDecoration(
+                  color: Color(0x00FEF8F3),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Card(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        color: Color(0xFFC7DCEF),
+                        elevation: 5.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(35.0),
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0.0, -1.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 220.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFC7DCEF),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 15.0, 15.0, 15.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 20.0),
+                                          child: Text(
+                                            getJsonField(
+                                              widget.data,
+                                              r'''$.title''',
+                                            ).toString(),
+                                            maxLines: 1,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Lato',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .blkToWyt,
+                                                  fontSize: 20.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                          ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 35.0),
-                                        child: Text(
-                                          getJsonField(
-                                            widget.data,
-                                            r'''$.short_details''',
-                                          ).toString(),
-                                          textAlign: TextAlign.start,
-                                          maxLines: 4,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .blkToWyt,
-                                                fontWeight: FontWeight.normal,
-                                              ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 35.0),
+                                          child: Text(
+                                            getJsonField(
+                                              widget.data,
+                                              r'''$.short_details''',
+                                            ).toString(),
+                                            textAlign: TextAlign.start,
+                                            maxLines: 4,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .blkToWyt,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

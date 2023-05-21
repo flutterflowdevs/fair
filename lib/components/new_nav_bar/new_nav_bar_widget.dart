@@ -265,7 +265,7 @@ class _NewNavBarWidgetState extends State<NewNavBarWidget>
                         FFAppState().isMap = true;
                       });
 
-                      context.pushNamed('Favourites');
+                      context.pushNamed('ProfilePage');
                     }
                   },
                   onDoubleTap: () async {
