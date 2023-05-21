@@ -12,7 +12,7 @@ class MapPopupWidget extends StatefulWidget {
     this.dataReff,
   }) : super(key: key);
 
-  final int? dataReff;
+  final dynamic dataReff;
 
   @override
   _MapPopupWidgetState createState() => _MapPopupWidgetState();
