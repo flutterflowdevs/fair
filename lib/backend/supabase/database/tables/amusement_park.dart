@@ -42,8 +42,8 @@ class AmusementParkRow extends SupabaseDataRow {
   String? get mapLink => getField<String>('map_link');
   set mapLink(String? value) => setField<String>('map_link', value);
 
-  String? get shortDatails => getField<String>('short_datails');
-  set shortDatails(String? value) => setField<String>('short_datails', value);
+  String? get shortDetails => getField<String>('short_details');
+  set shortDetails(String? value) => setField<String>('short_details', value);
 
   String? get details => getField<String>('details');
   set details(String? value) => setField<String>('details', value);

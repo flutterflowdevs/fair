@@ -1,3 +1,4 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -10,9 +11,11 @@ class RideCardWidget extends StatefulWidget {
   const RideCardWidget({
     Key? key,
     this.data,
+    this.userRecord,
   }) : super(key: key);
 
   final dynamic data;
+  final UsersRow? userRecord;
 
   @override
   _RideCardWidgetState createState() => _RideCardWidgetState();
@@ -161,7 +164,10 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                 shape: BoxShape.circle,
               ),
               child: Image.network(
-                '',
+                getJsonField(
+                  widget.data,
+                  r'''$.img''',
+                ),
                 fit: BoxFit.cover,
               ),
             ),
@@ -179,16 +185,30 @@ class _RideCardWidgetState extends State<RideCardWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.favorite,
-                    color: Color(0xFFFF0000),
-                    size: 20.0,
-                  ),
-                  Icon(
-                    Icons.favorite,
-                    color: FlutterFlowTheme.of(context).whiteToWhite,
-                    size: 20.0,
-                  ),
+                  if (valueOrDefault<bool>(
+                    widget.userRecord?.favouriteIds?.contains(getJsonField(
+                      widget.data,
+                      r'''$.id''',
+                    )),
+                    false,
+                  ))
+                    Icon(
+                      Icons.favorite,
+                      color: Color(0xFFFF0000),
+                      size: 20.0,
+                    ),
+                  if (!valueOrDefault<bool>(
+                    widget.userRecord?.favouriteIds?.contains(getJsonField(
+                      widget.data,
+                      r'''$.id''',
+                    )),
+                    false,
+                  ))
+                    Icon(
+                      Icons.favorite,
+                      color: FlutterFlowTheme.of(context).whiteToWhite,
+                      size: 20.0,
+                    ),
                 ],
               ),
             ),

@@ -28,4 +28,8 @@ class UsersRow extends SupabaseDataRow {
 
   DateTime? get createdAt => getField<DateTime>('created_at');
   set createdAt(DateTime? value) => setField<DateTime>('created_at', value);
+
+  List<int> get favouriteIds => getListField<int>('favourite_ids');
+  set favouriteIds(List<int>? value) =>
+      setListField<int>('favourite_ids', value);
 }

@@ -131,74 +131,75 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return FutureBuilder<ApiCallResponse>(
-      future: FairLandGroup
-          .getAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingCall
-          .call(
-        methodUrl: 'get_all_amusement_park_by_type_rating',
-        typesList: (String var1) {
-          return [var1];
-        }(FFAppState().selectedFilter),
-        rating: 0,
-        orderBy: 'desc',
-      ),
-      builder: (context, snapshot) {
-        // Customize what your widget looks like when it's loading.
-        if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
-              ),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
+          top: true,
+          child: Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 1.0,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).primaryBackground,
             ),
-          );
-        }
-        final rideListPageGetAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingResponse =
-            snapshot.data!;
-        return GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Scaffold(
-            key: scaffoldKey,
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            body: SafeArea(
-              top: true,
-              child: Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 1.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                ),
-                child: Stack(
+            child: Stack(
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Stack(
                             children: [
-                              Stack(
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(1.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 55.0, 0.0, 0.0),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.84,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.45,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                        ),
-                                        child: Container(
+                              Align(
+                                alignment: AlignmentDirectional(1.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 55.0, 0.0, 0.0),
+                                  child: Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.84,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.45,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
+                                    child: FutureBuilder<ApiCallResponse>(
+                                      future: FairLandGroup
+                                          .getAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingCall
+                                          .call(
+                                        methodUrl:
+                                            'get_all_amusement_park_by_type_rating',
+                                        rating: 0,
+                                        orderBy: 'desc',
+                                        typesList: (String var1) {
+                                          return [var1];
+                                        }(FFAppState().selectedFilter),
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        final complicatedImageDemoGetAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingResponse =
+                                            snapshot.data!;
+                                        return Container(
                                           width: 84.0,
                                           height: 45.0,
                                           child: custom_widgets
@@ -208,84 +209,78 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                             listOfData: FairLandGroup
                                                 .getAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingCall
                                                 .typeGreaterThan3(
-                                              rideListPageGetAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingResponse
+                                              complicatedImageDemoGetAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingResponse
                                                   .jsonBody,
                                             ),
                                           ),
-                                        ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'containerOnPageLoadAnimation']!),
+                                        );
+                                      },
                                     ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation']!),
+                                ),
+                              ),
+                              Card(
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                elevation: 16.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(0.0),
+                                    bottomRight: Radius.circular(100.0),
+                                    topLeft: Radius.circular(0.0),
+                                    topRight: Radius.circular(0.0),
                                   ),
-                                  Card(
-                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                ),
+                                child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.16,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.55,
+                                  decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    elevation: 16.0,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(0.0),
-                                        bottomRight: Radius.circular(100.0),
-                                        topLeft: Radius.circular(0.0),
-                                        topRight: Radius.circular(0.0),
-                                      ),
-                                    ),
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.16,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.55,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(0.0),
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Transform.rotate(
-                                            angle: 4.7124,
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                if (FFAppState().filterList ==
-                                                    2)
-                                                  Container(
-                                                    width: 5.0,
-                                                    height: 5.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                  ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .selectedFilter =
-                                                          'Rides';
-                                                      FFAppState().filterList =
-                                                          2;
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    'Rides',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                        .primaryBackground,
+                                    borderRadius: BorderRadius.circular(0.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Transform.rotate(
+                                        angle: 4.7124,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            if (FFAppState().filterList == 2)
+                                              Container(
+                                                width: 5.0,
+                                                height: 5.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  shape: BoxShape.circle,
+                                                ),
+                                              ),
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                FFAppState().update(() {
+                                                  FFAppState().selectedFilter =
+                                                      'Rides';
+                                                  FFAppState().filterList = 2;
+                                                });
+                                              },
+                                              child: Text(
+                                                'Rides',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
@@ -307,51 +302,45 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'textOnPageLoadAnimation1']!),
-                                              ],
-                                            ),
-                                          ),
-                                          Transform.rotate(
-                                            angle: 4.7124,
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                if (FFAppState().filterList ==
-                                                    1)
-                                                  Container(
-                                                    width: 5.0,
-                                                    height: 5.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                  ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .selectedFilter =
-                                                          'Shows';
-                                                      FFAppState().filterList =
-                                                          1;
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    'Shows',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                              ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'textOnPageLoadAnimation1']!),
+                                          ],
+                                        ),
+                                      ),
+                                      Transform.rotate(
+                                        angle: 4.7124,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            if (FFAppState().filterList == 1)
+                                              Container(
+                                                width: 5.0,
+                                                height: 5.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  shape: BoxShape.circle,
+                                                ),
+                                              ),
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                FFAppState().update(() {
+                                                  FFAppState().selectedFilter =
+                                                      'Shows';
+                                                  FFAppState().filterList = 1;
+                                                });
+                                              },
+                                              child: Text(
+                                                'Shows',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
@@ -373,51 +362,45 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'textOnPageLoadAnimation2']!),
-                                              ],
-                                            ),
-                                          ),
-                                          Transform.rotate(
-                                            angle: 4.7124,
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                if (FFAppState().filterList ==
-                                                    0)
-                                                  Container(
-                                                    width: 5.0,
-                                                    height: 5.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                  ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .selectedFilter =
-                                                          'Food';
-                                                      FFAppState().filterList =
-                                                          0;
-                                                    });
-                                                  },
-                                                  child: Text(
-                                                    'Food',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                              ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'textOnPageLoadAnimation2']!),
+                                          ],
+                                        ),
+                                      ),
+                                      Transform.rotate(
+                                        angle: 4.7124,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            if (FFAppState().filterList == 0)
+                                              Container(
+                                                width: 5.0,
+                                                height: 5.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  shape: BoxShape.circle,
+                                                ),
+                                              ),
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                FFAppState().update(() {
+                                                  FFAppState().selectedFilter =
+                                                      'Food';
+                                                  FFAppState().filterList = 0;
+                                                });
+                                              },
+                                              child: Text(
+                                                'Food',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
@@ -439,270 +422,283 @@ class _RideListPageWidgetState extends State<RideListPageWidget>
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'textOnPageLoadAnimation3']!),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ).animateOnPageLoad(animationsMap[
-                                          'columnOnPageLoadAnimation']!),
-                                    ),
-                                  ),
-                                ],
-                              ).animateOnPageLoad(
-                                  animationsMap['stackOnPageLoadAnimation']!),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    25.0, 5.0, 0.0, 0.0),
-                                child: Text(
-                                  'Recommended Rides',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.normal,
+                                              ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'textOnPageLoadAnimation3']!),
+                                          ],
+                                        ),
                                       ),
-                                ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                height: 210.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
-                                  child: FutureBuilder<ApiCallResponse>(
-                                    future: FairLandGroup
-                                        .getAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingCall
-                                        .call(
-                                      methodUrl:
-                                          'get_all_amusement_park_by_type_rating',
-                                      rating: 3,
-                                      typesList: (String var1) {
-                                        return [var1];
-                                      }(FFAppState().Recommended),
-                                      orderBy: 'desc',
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      final listViewGetAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingResponse =
-                                          snapshot.data!;
-                                      return Builder(
-                                        builder: (context) {
-                                          final itme = FairLandGroup
-                                                  .getAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingCall
-                                                  .typeGreaterThan3(
-                                                    listViewGetAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingResponse
-                                                        .jsonBody,
-                                                  )
-                                                  ?.toList() ??
-                                              [];
-                                          return ListView.builder(
-                                            padding: EdgeInsets.zero,
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.horizontal,
-                                            itemCount: itme.length,
-                                            itemBuilder: (context, itmeIndex) {
-                                              final itmeItem = itme[itmeIndex];
-                                              return Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 0.0, 0.0),
-                                                child: Card(
-                                                  clipBehavior: Clip
-                                                      .antiAliasWithSaveLayer,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            16.0),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      16.0),
-                                                          child: Image.network(
-                                                            getJsonField(
-                                                              itmeItem,
-                                                              r'''$.img''',
-                                                            ),
-                                                            width: 100.0,
-                                                            height: 100.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    0.0),
-                                                        child: Container(
-                                                          width: 110.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            getJsonField(
-                                                              itmeItem,
-                                                              r'''$.title''',
-                                                            ).toString(),
-                                                            maxLines: 2,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      5.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Icon(
-                                                                Icons
-                                                                    .star_sharp,
-                                                                color: Color(
-                                                                    0xFF73A88D),
-                                                                size: 22.0,
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  formatNumber(
-                                                                    getJsonField(
-                                                                      itmeItem,
-                                                                      r'''$.rating''',
-                                                                    ),
-                                                                    formatType:
-                                                                        FormatType
-                                                                            .decimal,
-                                                                    decimalType:
-                                                                        DecimalType
-                                                                            .automatic,
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryText,
-                                                                        fontSize:
-                                                                            13.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              );
-                                            },
-                                          ).animateOnPageLoad(animationsMap[
-                                              'listViewOnPageLoadAnimation']!);
-                                        },
-                                      );
-                                    },
-                                  ),
+                                    ],
+                                  ).animateOnPageLoad(animationsMap[
+                                      'columnOnPageLoadAnimation']!),
                                 ),
                               ),
                             ],
+                          ).animateOnPageLoad(
+                              animationsMap['stackOnPageLoadAnimation']!),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                25.0, 5.0, 0.0, 0.0),
+                            child: Text(
+                              'Recommended Rides',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: wrapWithModel(
-                        model: _model.newNavBarModel,
-                        updateCallback: () => setState(() {}),
-                        child: NewNavBarWidget(),
+                          Container(
+                            width: double.infinity,
+                            height: 210.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: FutureBuilder<ApiCallResponse>(
+                                future: FairLandGroup
+                                    .getAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingCall
+                                    .call(
+                                  methodUrl:
+                                      'get_all_amusement_park_by_type_rating',
+                                  rating: 3,
+                                  typesList: (String var1) {
+                                    return [var1];
+                                  }(FFAppState().Recommended),
+                                  orderBy: 'desc',
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  final listViewGetAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingResponse =
+                                      snapshot.data!;
+                                  return Builder(
+                                    builder: (context) {
+                                      final itme = FairLandGroup
+                                              .getAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingCall
+                                              .typeGreaterThan3(
+                                                listViewGetAllAmusementParkWhereRatingIsGreaterThanAndTypeContainsTypeAndOrderByDecreasingResponse
+                                                    .jsonBody,
+                                              )
+                                              ?.toList() ??
+                                          [];
+                                      return ListView.builder(
+                                        padding: EdgeInsets.zero,
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: itme.length,
+                                        itemBuilder: (context, itmeIndex) {
+                                          final itmeItem = itme[itmeIndex];
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    5.0, 0.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'Rides_detail',
+                                                  queryParams: {
+                                                    'data': serializeParam(
+                                                      itmeItem,
+                                                      ParamType.JSON,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Card(
+                                                clipBehavior:
+                                                    Clip.antiAliasWithSaveLayer,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          16.0),
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  10.0,
+                                                                  10.0,
+                                                                  10.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(16.0),
+                                                        child: Image.network(
+                                                          getJsonField(
+                                                            itmeItem,
+                                                            r'''$.img''',
+                                                          ),
+                                                          width: 100.0,
+                                                          height: 100.0,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  10.0,
+                                                                  10.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: 110.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                        ),
+                                                        child: Text(
+                                                          getJsonField(
+                                                            itmeItem,
+                                                            r'''$.title''',
+                                                          ).toString(),
+                                                          maxLines: 2,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    5.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.star_sharp,
+                                                              color: Color(
+                                                                  0xFF73A88D),
+                                                              size: 22.0,
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                formatNumber(
+                                                                  getJsonField(
+                                                                    itmeItem,
+                                                                    r'''$.rating''',
+                                                                  ),
+                                                                  formatType:
+                                                                      FormatType
+                                                                          .decimal,
+                                                                  decimalType:
+                                                                      DecimalType
+                                                                          .automatic,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      fontSize:
+                                                                          13.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ).animateOnPageLoad(animationsMap[
+                                          'listViewOnPageLoadAnimation']!);
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-              ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: wrapWithModel(
+                    model: _model.newNavBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: NewNavBarWidget(),
+                  ),
+                ),
+              ],
             ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

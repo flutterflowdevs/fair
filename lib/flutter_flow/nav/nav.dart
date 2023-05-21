@@ -100,7 +100,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Rides_detail',
               path: 'ridesDetail',
-              builder: (context, params) => RidesDetailWidget(),
+              builder: (context, params) => RidesDetailWidget(
+                data: params.getParam('data', ParamType.JSON),
+              ),
             ),
             FFRoute(
               name: 'PaymentSuccess',

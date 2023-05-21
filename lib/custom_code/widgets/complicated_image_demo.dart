@@ -7,10 +7,7 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import '/backend/backend.dart';
-
-import '../../backend/schema/amusementpark_record.dart';
-import '../../components/ride_card_widget.dart';
+import '../../components/ride_card/ride_card_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class ComplicatedImageDemo extends StatefulWidget {
@@ -19,11 +16,13 @@ class ComplicatedImageDemo extends StatefulWidget {
     this.width,
     this.height,
     this.listOfData,
+    required this.userRecord,
   }) : super(key: key);
 
   final double? width;
   final double? height;
   final List<dynamic>? listOfData;
+  final UsersRow userRecord;
 
   @override
   _ComplicatedImageDemoState createState() => _ComplicatedImageDemoState();
@@ -34,7 +33,7 @@ class _ComplicatedImageDemoState extends State<ComplicatedImageDemo> {
   Widget build(BuildContext context) {
     return Container(
       child: CarouselSlider.builder(
-          itemCount: widget.listData!.length,
+          itemCount: widget.listOfData!.length,
           options: CarouselOptions(
             enableInfiniteScroll: false,
             autoPlay: false,
@@ -47,6 +46,7 @@ class _ComplicatedImageDemoState extends State<ComplicatedImageDemo> {
               (BuildContext context, int itemIndex, int pageViewIndex) {
             return RideCardWidget(
               data: widget.listOfData![itemIndex],
+              userRecord: widget.userRecord,
               key: widget.key,
             );
           }),
