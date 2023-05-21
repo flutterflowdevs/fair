@@ -17,12 +17,19 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'marker_pin.dart';
 
 class MapWidget extends StatefulWidget {
-  final double width, height;
+  const MapWidget({
+    Key? key,
+    this.width,
+    this.height,
+    required this.data,
+  }) : super(key: key);
 
-  MapWidget({required this.width, required this.height});
+  final double? width;
+  final double? height;
+  final dynamic data;
 
   @override
-  State<MapWidget> createState() => _MapViewWidget();
+  _MapWidgetState createState() => _MapWidgetState();
 }
 
 class _MapViewWidget extends State<MapWidget>

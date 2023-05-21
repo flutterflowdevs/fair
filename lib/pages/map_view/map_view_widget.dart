@@ -81,6 +81,8 @@ class _MapViewWidgetState extends State<MapViewWidget> {
                       child: custom_widgets.MapWidget(
                         width: MediaQuery.of(context).size.width * 1.0,
                         height: MediaQuery.of(context).size.height * 0.91,
+                        data:
+                            mapViewGetAllAmusementParksDetailsResponse.jsonBody,
                       ),
                     ),
                     Align(
